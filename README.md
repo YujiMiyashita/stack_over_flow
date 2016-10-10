@@ -64,6 +64,9 @@ https://github.com/YujiMiyashita/stack_over_flow/issues/61　←issueのURL
 レビューします！
 ```
 
+* issueのチェックボックスはレビュー者がつける
+
+
 * レビューの結果をプルリクに記載する
 
 ```
