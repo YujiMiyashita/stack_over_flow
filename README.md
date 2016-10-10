@@ -48,14 +48,14 @@
 * Slackにてレビューお願い
 
 ```
-@channel #5のレビューお願いします！
-https://github.com/YujiMiyashita/stack_over_flow/issues/61
+@channel #5（←issue番号）のレビューお願いします！
+https://github.com/YujiMiyashita/stack_over_flow/issues/61　←issueのURL
 ```
 
 * レビューを引き受ける（レビューをお願いされた人にメンションをつける）
 
 ```
-@kazuhiro_ikeda #5レビューします。
+@kazuhiro_ikeda #5（←issue番号）レビューします。
 ```
 
 * issueにもレビューする旨を伝える
