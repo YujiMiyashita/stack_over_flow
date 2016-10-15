@@ -33,7 +33,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :uid,      null: false, default: ""
       t.string :provider, null: false, default: ""
       t.string :name, null: false, default: '変更してください'
-      t.string :image
+      t.string :image_url
 
       t.timestamps null: false
     end
