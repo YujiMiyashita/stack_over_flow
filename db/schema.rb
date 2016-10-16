@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20161009125542) do
     t.string   "uid",                    default: "",         null: false
     t.string   "provider",               default: "",         null: false
     t.string   "name",                   default: "変更してください", null: false
-    t.string   "image"
+    t.string   "image_url"
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
   end
