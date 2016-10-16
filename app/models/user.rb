@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-    user = User.where(provider: auth.provider, uid: auth.uid).first
+    user = User.find_by(provider: auth.provider, uid: auth.uid) || User.find_by(email: auth.info.email)
 
     unless user
       user = User.new(
@@ -23,8 +23,7 @@ class User < ActiveRecord::Base
   end
 
   def self.find_for_google_oauth(auth, signed_in_resource=nil)
-    user = User.where(provider: auth.provider, uid: auth.uid).first
-
+    user = User.find_by(provider: auth.provider, uid: auth.uid) || User.find_by(email: auth.info.email)
     unless user
       user = User.new(
           name: auth.info.name,
