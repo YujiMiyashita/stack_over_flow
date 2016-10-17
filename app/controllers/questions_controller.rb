@@ -25,7 +25,7 @@ class QuestionsController < ApplicationController
   end
 
   def update
-
+    hoegeohogeorgoegoegoeorgoerogoeorogoergoegooegoeorgoergoegoeogoegoroeg
   end
 
   def destroy
