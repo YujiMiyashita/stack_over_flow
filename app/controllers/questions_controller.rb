@@ -21,7 +21,13 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    @question = Question.find(params[:id])
 
+    if @question.save
+      redirect_to questions_path notice: '質問が編集されました'
+    else
+      render :new
+    end
   end
 
   def update
