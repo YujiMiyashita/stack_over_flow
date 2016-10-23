@@ -1,11 +1,12 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!
+  before_action :my_question, only: [:edit, :update, :destroy]
+
   def index
     @questions = Question.all
   end
 
   def show
-    @question = Question.find(params[:id])
   end
 
   def new
@@ -22,12 +23,10 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
-    @question = Question.find(params[:id])
-    if @question.save
+    if @question.update(question_params)
       redirect_to questions_path notice: '質問が編集されました'
     else
       render :new
@@ -41,5 +40,13 @@ class QuestionsController < ApplicationController
   private
     def question_params
       params.require(:question).permit(:title, :content)
+    end
+
+    def set_question
+      @question = Question.find(params[:id])
+    end
+
+    def my_question
+      redirect_to questions_path, notice: 'この操作はできません。' unless @question.user == current_user
     end
 end
