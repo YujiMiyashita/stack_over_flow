@@ -13,4 +13,8 @@ Rails.application.routes.draw do
 #質問機能
   resources :questions
 
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
 end
