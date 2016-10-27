@@ -14,6 +14,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
+    @question.user_id = current_user.id
     if @question.save
       redirect_to questions_path, notice: '質問が投稿されました'
     else
@@ -42,6 +43,6 @@ class QuestionsController < ApplicationController
 
   private
     def question_params
-      params.require(:question).permit(:title, :content)
+      params.require(:question).permit(:title, :content, :user_id)
     end
 end
