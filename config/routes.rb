@@ -11,6 +11,12 @@ Rails.application.routes.draw do
   }
   resources :users, only: [:index]
 #質問機能
-  resources :questions
+  resources :questions do
+    resources :answers
+  end
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 
 end
