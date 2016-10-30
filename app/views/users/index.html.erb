@@ -1,5 +1,5 @@
 <h1>ユーザ一覧</h1>
 <% @users.each do |user| %>
-  <%= link_to profile_img(user),user if profile_img(user) %>
+  <%= profile_img(user) if profile_img(user) %>
   <%= user.name %>
 <% end %>
