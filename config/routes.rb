@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'users/index'
-
 #トップ画面
   root 'top#index'
 
@@ -10,6 +8,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: "users/omniauth_callbacks"
   }
   resources :users, only: [:index]
+  resources :favorites, only: [:create,:destroy]
 #質問機能
   resources :questions do
     resources :answers

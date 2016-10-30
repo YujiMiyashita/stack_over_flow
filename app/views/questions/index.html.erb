@@ -1,6 +1,9 @@
 <% @questions.each do |question| %>
   <%= question.title %>
   <%= question.content %>
+
+
+  <%= render 'favorite_form', question: question %>
   <%= link_to '詳細', question_path(question) %>
   <%= link_to '編集', edit_question_path(question) %>
   <%= link_to '削除', question_path(question), method: :delete %>
