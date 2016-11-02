@@ -3,7 +3,6 @@ class CreateFavorites < ActiveRecord::Migration
     create_table :favorites do |t|
       t.references :user, index: true, foreign_key: true
       t.references :question, index: true, foreign_key: true
-      t.boolean :star, default: false
 
       t.timestamps null: false
     end

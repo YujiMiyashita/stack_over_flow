@@ -29,9 +29,8 @@ ActiveRecord::Schema.define(version: 20161023074407) do
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "question_id"
-    t.boolean  "star",        default: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "favorites", ["question_id"], name: "index_favorites_on_question_id", using: :btree
