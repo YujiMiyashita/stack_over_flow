@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+qRails.application.routes.draw do
 
 #トップ画面
   root 'top#index'
