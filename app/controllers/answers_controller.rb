@@ -5,7 +5,14 @@ class AnswersController < ApplicationController
   end
 
   def create
-
+    @answer = Answer.new(answer_params)
+    @answer.user_id = current_user.id
+    @question=Question.find(params[:answer][:question_id])
+    if @answer.save
+      redirect_to @questions, notice: '回答が投稿されました'
+    else
+      render :template => "questions/show"
+    end
   end
 
   def edit
@@ -19,4 +26,9 @@ class AnswersController < ApplicationController
   def destroy
 
   end
+
+  private
+    def answer_params
+      params.require(:answer).permit(:content, :question_id)
+    end
 end
