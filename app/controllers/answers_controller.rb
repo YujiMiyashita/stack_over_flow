@@ -9,7 +9,7 @@ class AnswersController < ApplicationController
     @answer.user_id = current_user.id
     @question=Question.find(params[:answer][:question_id])
     if @answer.save
-      redirect_to @questions, notice: '回答が投稿されました'
+      redirect_to @question, notice: '回答が投稿されました'
     else
       render :template => "questions/show"
     end
