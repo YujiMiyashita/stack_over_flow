@@ -1,3 +1,5 @@
-<%= form_for question do |f| %>
-  <%= f.submit "ほし", class: "btn btn-sm btn-warning" %>
-<% end %>
+<% if current_user.favorite?(question.user) %>
+  <%= reneder 'unstar' question: question %>
+<% else %>
+  <%= render 'star' question: question %>
+<%= end %>
