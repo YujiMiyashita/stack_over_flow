@@ -1,4 +1,4 @@
 <%= form_for(current_user.favorites.build(question_id: question.id)) do |f| %>
   <%= f.hidden_field :question_id %>
-  <%= f.submit "ほし", class: "btn btn-sm btn-warning" %>
+  <%= f.submit "お気に入りに入れる", class: "btn btn-sm" %>
 <% end %>
