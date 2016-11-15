@@ -1,4 +1,4 @@
-<% if false %>
+<% if current_user.favorites.find_by(question_id: question.id).present? %>
   <%= render 'favorites/unstar', question: question %>
 <% else %>
   <%= render 'favorites/star', question: question %>
