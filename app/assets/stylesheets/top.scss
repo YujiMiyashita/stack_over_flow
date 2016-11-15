@@ -1,3 +1,47 @@
 // Place all the styles related to the top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.top_header{
+  line-height: 100px;
+}
+
+.top_header h1{
+  float: left;
+}
+
+.top_header ul {
+  float: right;
+  padding: 5% 0;
+}
+
+ul.top li{
+  list-style: none;
+  float:left;
+  font-size: 14px;
+  line-height: 1.3;
+  padding: 4px 10px 5px;
+  margin-right: 5px;
+  color: #FFF;
+  background: #9fa6ad;
+}
+
+ul.top li:hover{
+    background: #5fba7d;
+}
+
+ul.top a{
+  color: #FFF;
+  text-decoration: none;
+}
+
+.top_content{
+  text-align: center;
+}
+
+.top_content img{
+  margin: 30px 0;
+}
+
+.top_content p{
+  font-size: 16px;
+}
