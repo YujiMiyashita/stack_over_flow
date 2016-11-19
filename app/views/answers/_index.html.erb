@@ -3,7 +3,7 @@
     <hr>
     <p>回答 : <%= answer.content %></p>
 
-    <%= link_to '編集', "/questions/#{answer.question_id}/answers/#{answer.id}/edit" %>
-    <%= link_to '削除', "/questions/#{answer.question_id}/answers/#{answer.id}", method: :delete %>
+    <%= link_to '編集', edit_question_answer_path(answer.question_id, answer.id) %>
+    <%= link_to '削除', question_answer_path(answer.question_id, answer.id), method: :delete %>
   <% end %>
 <% end %>

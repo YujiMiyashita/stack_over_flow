@@ -2,17 +2,13 @@ class AnswersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_answer, only: [:edit, :update, :destroy]
 
-  def new
-
-  end
-
   def create
     @answer = Answer.new(answer_params)
     @answer.user_id = current_user.id
     if @answer.save
       redirect_to @answer.question, notice: '回答が投稿されました'
     else
-      render :template => "questions/show"
+      render template: "questions/show"
     end
   end
 
@@ -24,7 +20,7 @@ class AnswersController < ApplicationController
     if @answer.update(answer_params)
       redirect_to question_path(@answer.question_id), notice: '回答が編集されました'
     else
-      render :template => "questions/show"
+      render template: "questions/show"
     end
   end
 
