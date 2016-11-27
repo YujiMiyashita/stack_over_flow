@@ -1,6 +1,7 @@
 class AnswersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_answer, only: [:edit, :update, :destroy]
+  before_action :my_answer, only: [:edit, :update, :destroy]
 
   def create
     @answer = Answer.new(answer_params)
@@ -36,5 +37,9 @@ class AnswersController < ApplicationController
 
     def set_answer
       @answer = Answer.find(params[:id])
+    end
+
+    def my_answer
+      redirect_to questions_path, notice: 'この操作はできません。' unless @answer.user == current_user
     end
 end
