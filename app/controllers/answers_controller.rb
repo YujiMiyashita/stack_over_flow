@@ -40,6 +40,6 @@ class AnswersController < ApplicationController
     end
 
     def my_answer
-      redirect_to questions_path, notice: 'この操作はできません。' unless @answer.user == current_user
+      redirect_to question_path(@answer.question_id), notice: 'この操作はできません。' unless @answer.user == current_user
     end
 end
