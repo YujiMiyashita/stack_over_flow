@@ -6,6 +6,7 @@
   <%= f.text_area :content %>
 
   <%= f.label :image %>
+  <%= image_tag @question.image %>
   <%= f.file_field :image %>
   <%= f.hidden_field :image_cache %>
 
