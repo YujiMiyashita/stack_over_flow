@@ -1,17 +1,41 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container">
+  <!-- <div class="wrapper col-md-8 col-md-offset-2 col-sm-10"> -->
+  <div class="col-sm-3 sidemenu">
+    <ul class="user_edit">
+        <li><%= link_to 'プロフィール', edit_user_registration_path %></li>
+    </ul>
+  </div>
+  <div class="col-sm-9 main">
+<h4 class="profile_title">プロフィールを編集 </h4>
 
+<hr>
+<h4>公開情報</h4>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "メールアドレス" %>
+  <div class="field profile_img">
+    <%= profile_img_large(@user) if profile_img_large(@user) %>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
   </div>
 
+
+
   <div class="field">
-    <%= f.label :名前 %><br />
-    <%= f.text_field :name, class: "form-control", placeholder: "名前" %>
+    <%= f.label :表示名 %><br />
+    <%= f.text_field :name, autofocus: true,class: "form-control", placeholder: "表示名" %>
   </div>
+
+  <hr>
+
+  <h4>非公開情報 (他のユーザーからは見えません)</h4>
+
+  <div class="field　mail_field">
+    <%= f.label :メールアドレス %><br />
+    <%= f.email_field :email,  class: "form-control", placeholder: "メールアドレス" %>
+  </div>
+
+  <hr>
 
 <% if @user.provider.blank? %>
 
@@ -20,39 +44,39 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+      <%= f.label :パスワード %><em>(<%= @minimum_password_length %>文字以上)</em><br />
       <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "パスワード" %>
       <% if @minimum_password_length %>
         <br />
-        <em><%= @minimum_password_length %> characters minimum</em>
+
       <% end %>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %><br />
+      <%= f.label :パスワード確認 %><br />
       <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "パスワード確認" %>
     </div>
 
     <div class="field">
-      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+      <%= f.label :現在のパスワード %> <i>情報変更の為に現在のパスワードを入力してください。</i><br />
       <%= f.password_field :current_password, autocomplete: "off", class: "form-control", placeholder: "現在のパスワード" %>
     </div>
 
   <% end %>
 
-  <div class="field">
-    <%= profile_img(@user) if profile_img(@user) %>
-    <%= f.file_field :avatar %>
-    <%= f.hidden_field :avatar_cache %>
-  </div>
+
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "プロフィールの保存",class:"btn btn-primary" %>
+    <%= link_to "キャンセル", :back %>
   </div>
 <% end %>
+<br><br>
+<hr>
+<h3>アカウント削除</h3>
 
-<h3>Cancel my account</h3>
+<p><%= button_to "削除", registration_path(resource_name), data: { confirm: "本当に削除しますか？" }, method: :delete ,class:"btn btn-danger"%></p>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+</div>
+</div>

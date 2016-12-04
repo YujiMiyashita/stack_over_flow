@@ -1,3 +1,10 @@
-<h1>ユーザ詳細</h1>
-<%= profile_img(@user) if profile_img(@user) %>
-<%= @user.name %>
+<div class="container">
+  <div class="col-sm-3 user_img">
+    <%= profile_img_large(@user) if profile_img_large(@user) %>
+  </div>
+
+  <div class="col-sm-9 user_prof">
+    <h2 class="name"><%= @user.name %></h2>
+  </div>
+
+</div>
