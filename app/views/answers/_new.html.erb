@@ -3,6 +3,10 @@
   <%= f.label :content %>
   <%= f.text_area :content %>
 
+  <%= image_tag @answer.image %>
+  <%= f.file_field :image %>
+  <%= f.hidden_field :image_cache %>
+
   <%= f.hidden_field :question_id, value: @question.id %>
 
   <%= f.submit %>

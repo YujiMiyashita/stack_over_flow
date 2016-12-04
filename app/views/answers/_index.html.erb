@@ -2,6 +2,7 @@
   <% if answer.id then %>
     <hr>
     <p>回答 : <%= answer.content %></p>
+    <p>画像 : <%= image_tag answer.image %></p>
 
     <%= link_to '編集', edit_question_answer_path(answer.question_id, answer.id) %>
     <%= link_to '削除', question_answer_path(answer.question_id, answer.id), method: :delete %>
