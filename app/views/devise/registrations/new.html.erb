@@ -1,33 +1,61 @@
-<h2>Sign up</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4 login" style="border: 1px solid #d3d3d3">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+      <div class="google">
+        <%= link_to "google", user_google_oauth2_omniauth_authorize_path ,{class: "btn btn-danger btn-lg", role: "button"} %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "メールアドレス" %>
+      <div class="facebook">
+        <%= link_to "Facebook", user_facebook_omniauth_authorize_path ,{class: "btn btn-primary btn-lg", role: "button"} %>
+      </div>
+
+      <div class="login_form">
+        <hr>
+        <p class="mid_text">または</p>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="field">
+          <%= f.label :表示名 %><br />
+          <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "J.Doe" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :メールアドレス（必須ですが、公開はされません） %><br />
+          <%= f.email_field :email,  class: "form-control", placeholder: "メールアドレス" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :パスワード %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> 文字以上)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "パスワード" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :パスワード確認 %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "パスワード確認" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "登録", class: 'btn btn-primary btn-lg' %>
+        </div>
+        <p class="mid_text">登録することで、プライバシーポリシーおよび利用規約に同意したものとみなされます。</p>
+      </div>
+      <% end %>
+
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.text_field :name, class: "form-control", placeholder: "名前" %>
+  <div class="col-sm-4 col-sm-offset-4 signup" style="border: 1px solid #d3d3d3">
+    <p>既にアカウントをお持ちですか？
+      <% if controller_name != 'sessions' %>
+      <%= link_to "ログイン", new_session_path(resource_name) %><br />
+      <% end %>
+    </p>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "パスワード" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "パスワード確認" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
+</div>

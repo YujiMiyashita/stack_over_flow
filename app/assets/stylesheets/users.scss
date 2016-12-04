@@ -1,3 +1,16 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+p.user{
+  width:220px;
+  float:left;
+}
+
+p.user:hover{
+  background: #f5fffa;
+}
+
+h2.name{
+  margin-top: 0px;
+}
