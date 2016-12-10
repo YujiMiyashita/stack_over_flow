@@ -1,5 +1,33 @@
-<%= @question.title %>
-<%= @question.content %>
-<%= image_tag(@question.image)%>
-<%= render 'answers/index' %>
-<%= render 'answers/new' %>
+<div class="container">
+  <div class="row col-sm-offset-1">
+
+    <h3><%= @question.title %></h3>
+    <hr>
+  </div>
+  <div class="row">
+    <div class="col-sm-1">
+    </div>
+
+    <div class="col-sm-1">
+      <p>▲</p>
+      <p><%= @question.votes.count %></p>
+      <p>▼</p>
+      <p><%= render 'favorites/favorite_form', question: @question %></p>
+    </div>
+    <div class="col-sm-6">
+      <p><%= @question.content %></p>
+      <%= image_tag(@question.image)%>
+      <p class="user1">
+      <%= link_to '編集', edit_question_path(@question) %>
+      <%= link_to '削除', question_path(@question), method: :delete %>
+      <p class="user2"><%= link_to @question.user.name ,@question.user %></p>
+      <p class="user_img"><%= link_to profile_img(@question.user),@question.user if profile_img(@question.user) %></p>
+    </p>
+    </div>
+    <div class="col-sm-4">
+      <p>投稿日：<%= @question.created_at %></p>
+    </div>
+  </div>
+  <%= render 'answers/index' %>
+  <%= render 'answers/new' %>
+</div>

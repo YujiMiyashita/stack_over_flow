@@ -1,3 +1,27 @@
-// Place all the styles related to the questions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+h4.main{
+  margin-top: 0;
+}
+
+.all_question{
+  text-align: left;
+}
+
+.qustion_count{
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.user1{
+  text-align: right;
+}
+.user2{
+  text-align: right;
+}
+
+.user_img{
+  text-align: right;
+}
+
+p.vote{
+  margin-top: 20px;
+}
