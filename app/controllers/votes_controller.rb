@@ -1,17 +1,22 @@
 class VotesController < ApplicationController
+  before_action :set_vote
+
   def good
-    question = Question.find(params[:question_id])
-    good = current_user.votes.build(question_id: question.id)
+    good = current_user.votes.build(question_id: @question.id)
     good.contribution = 1
-    good.save!
-    redirect_to question_path(question.id)
+    good.save
+    redirect_to question_path(@question.id)
   end
 
   def bad
-    question = Question.find(params[:question_id])
-    good = current_user.votes.build(question_id: question.id)
-    good.contribution = 2
-    good.save!
-    redirect_to question_path(question.id)
+    bad = current_user.votes.build(question_id: @question.id)
+    bad.contribution = 2
+    bad.save
+    redirect_to question_path(@question.id)
   end
+
+  private
+    def set_vote
+      @question = Question.find(params[:question_id])
+    end
 end
