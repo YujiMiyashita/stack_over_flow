@@ -1,14 +1,40 @@
+<div class="row">
+  <div class="col-sm-1">
+  </div>
+  <div class="col-sm-1">
+  </div>
+  <div class="col-sm-6">
 <%= form_for(@question) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+ <div class="form-group">
+  <%= f.label :タイトル %>
+  <%= f.text_field :title ,class: "form-control", placeholder: "プログラミングに関しての質問はなんですか？具体的に書いて下さい。"%>
+</div>
+ <div class="form-group">
+  <% f.label :content %>
+  <%= f.text_area :content , class: "form-control" , rows: "10"%>
+</div>
+  <% f.label :image %>
+  <% image_tag @question.image %>
+  <% f.file_field :image %>
+  <% f.hidden_field :image_cache %>
 
-  <%= f.label :content %>
-  <%= f.text_area :content %>
-
-  <%= f.label :image %>
-  <%= image_tag @question.image %>
-  <%= f.file_field :image %>
-  <%= f.hidden_field :image_cache %>
-
-  <%= f.submit %>
+  <%= f.submit "質問を投稿する",class:"btn btn-primary" %>
 <% end %>
+  </div>
+  <div class="col-sm-3">
+
+    <div class="box">
+<h4>質問するその前に</h4>
+
+<p>このサイトはプログラミングに関するQ&Aを対象にしています。</p>
+
+<p>単なる議論に終わらず、解決可能な質問を歓迎します。</p>
+
+<p>これまでに試したことや調べたことを含め、質問内容を詳しく書くことで回答がつきやすくなります。</p>
+
+<p>使い方がわからないなど、このサイトそのものについての質問でしたら、metaで受け付けています。</p>
+</div>
+  </div>
+  <div class="col-sm-1">
+  </div>
+</div>
