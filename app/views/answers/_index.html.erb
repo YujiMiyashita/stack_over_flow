@@ -1,10 +1,26 @@
 <% @question.answers.each do |answer| %>
-  <% if answer.id then %>
+<% if answer.id then %>
+<div class="row">
+  <div class="col-sm-1">
+  </div>
+  <div class="col-sm-1">
     <hr>
-    <p>回答 : <%= answer.content %></p>
-    <p>画像 : <%= image_tag answer.image %></p>
-
-    <%= link_to '編集', edit_question_answer_path(answer.question_id, answer.id) %>
-    <%= link_to '削除', question_answer_path(answer.question_id, answer.id), method: :delete %>
-  <% end %>
+    <p>▲</p>
+    <p><%= @question.votes.count %></p>
+    <p>▼</p>
+  </div>
+  <div class="col-sm-6">
+    <hr>
+    <p><%= answer.content %></p>
+    <p class="user1">
+      <%= link_to '編集', edit_question_answer_path(answer.question_id, answer.id) %>
+      <%= link_to '削除', question_answer_path(answer.question_id, answer.id), method: :delete %>
+    </p>
+    <p class="user2"><%= link_to answer.question.user.name ,answer.question.user %></p>
+    <p class="user_img"><%= link_to profile_img(answer.question.user),answer.question.user if profile_img(answer.question.user) %></p>
+  </div>
+  <div class="col-sm-4">
+  </div>
+</div>
+<% end %>
 <% end %>

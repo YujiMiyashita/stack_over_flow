@@ -1,10 +1,43 @@
-<% @questions.each do |question| %>
-  <%= question.title %>
-  <%= question.content %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-7">
+      <h4 class="all_question">すべての質問</h4>
+      <hr>
+    </div>
+    <div class="col-sm-4">
+      <h3 class="qustion_count"><%= Question.count %></h3>質問
+    </div>
+  </div>
+  <% @questions.each do |question| %>
+  <div class="row">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-1">
+      <p><%= question.votes.count %></p>
+      <p>票</p>
+      <p><%= question.answers.count %></p>
+      <p>回答</p>
+    </div>
+    <div class="col-sm-6">
 
 
-  <%= render 'favorites/favorite_form', question: question %>
-  <%= link_to '詳細', question_path(question) %>
-  <%= link_to '編集', edit_question_path(question) %>
-  <%= link_to '削除', question_path(question), method: :delete %>
-<% end %>
+      <h4 class="main"><%= link_to question.title , question %></h4>
+      <p><%= truncate(question.content, length: 100) %></p>
+      <p class="user1">
+        <%= link_to '詳細', question_path(question) %>
+        <%= link_to '編集', edit_question_path(question) %>
+        <%= link_to '削除', question_path(question), method: :delete %>
+      </p>
+      <p class="user1">質問日時: <%= question.created_at %></p>
+      <p class="user2"><%= link_to question.user.name ,question.user %></p>
+      <p class="user_img"><%= link_to profile_img(question.user),question.user if profile_img(question.user) %></p>
+      <% render 'favorites/favorite_form', question: question %>
+      <hr>
+    </div>
+    <div class="col-sm-3 col-sm-1">
+    </div>
+  </div>
+  <% end %>
+</div>
