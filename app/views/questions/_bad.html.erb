@@ -1,4 +1,1 @@
-<div class="bad">
-  <p><%= link_to '', bad_path(@question.id), method: :post, class: "bad_triangle" %></p>
-  <p><%=link_to "#{@question.votes.where(contribution: 2).count}票", bad_path(@question.id), method: :post, class: "char" %></p>
-</div>
+  <p><%= link_to '▼', bad_path(@question.id), method: :post %></p>
