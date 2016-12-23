@@ -25,6 +25,7 @@
 
       <h4 class="main"><%= link_to question.title , question %></h4>
       <p><%= truncate(question.content, length: 100) %></p>
+      <p><%= render 'questions/tag_list', tag_list: question.tag_list %></p>
       <p class="user1">
         <%= link_to '詳細', question_path(question) %>
         <%= link_to '編集', edit_question_path(question) %>
