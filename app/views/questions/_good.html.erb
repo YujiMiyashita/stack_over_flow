@@ -1,2 +1,5 @@
-
-  <p><%= link_to '▲', good_path(@question.id), method: :post %></p>
+  <% if current_user.votes.find_by(question_id: @question.id) %>
+    <p class="voted"><%= '▲' %></p>
+  <% else %>
+    <p><%= link_to '▲', good_path(@question.id), method: :post %></p>
+  <% end %>
