@@ -33,6 +33,7 @@ gem 'omniauth-google-oauth2'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'twitter-bootstrap-rails'
+gem 'acts-as-taggable-on', '~> 3.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -43,6 +44,7 @@ group :development, :test do
   gem 'pry-doc'
 
   gem 'pry-byebug'
+
 end
 
 group :development do

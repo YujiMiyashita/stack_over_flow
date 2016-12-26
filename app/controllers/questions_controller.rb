@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   before_action :my_question, only: [:edit, :update, :destroy]
 
   def index
-    @questions = Question.all
+    @questions = params[:tag].present? ? Question.tagged_with(params[:tag]) : Question.all
   end
 
   def show
@@ -44,7 +44,7 @@ class QuestionsController < ApplicationController
 
   private
     def question_params
-      params.require(:question).permit(:title, :content, :image, :image_cache)
+      params.require(:question).permit(:title, :content, :image, :image_cache, :tag_list)
     end
 
     def set_question
