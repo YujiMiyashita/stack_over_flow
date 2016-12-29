@@ -12,7 +12,9 @@
       <%= render 'good' %>
       <p><%= @question.votes.where(contribution: 1).count - @question.votes.where(contribution: 2).count %></p>
       <%= render 'bad' %>
+      <div id="favorite-link">
       <p><%= render 'favorites/favorite_form', question: @question %></p>
+      </div>
     </div>
     <div class="col-sm-6">
       <p><%= @question.content %></p>
