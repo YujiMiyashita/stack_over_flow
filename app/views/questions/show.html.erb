@@ -9,9 +9,9 @@
     </div>
 
     <div class="col-sm-1">
-      <%= render 'good' %>
-      <p><%= @question.votes.where(contribution: 1).count - @question.votes.where(contribution: 2).count %></p>
-      <%= render 'bad' %>
+      <div id="vote-link">
+        <p><%= render 'votes/vote_form', question: @question %></p>
+      </div>
       <p><%= render 'favorites/favorite_form', question: @question %></p>
     </div>
     <div class="col-sm-6">
