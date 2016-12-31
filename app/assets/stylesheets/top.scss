@@ -47,3 +47,33 @@ ul.top a{
 .top_content p{
   font-size: 16px;
 }
+
+.top_user1{
+  text-align: right;
+  float: right;
+  padding-bottom: 20px;
+}
+hr{
+  clear: right;
+}
+
+.top_answer_count{
+    border: solid 1px #dcdcdc;
+    text-align: center;
+}
+
+.top_answer_count p{
+    text-align: center;
+    padding: 1px;
+    margin: 1px;
+}
+
+.top_vote_count{
+    border: solid 1px #fff;
+}
+
+.top_vote_count p{
+    text-align: center;
+    padding: 1px;
+    margin: 1px;
+}

@@ -4,7 +4,7 @@
       <hr>
 
 <% @tags.each do |tag| %>
-  <p class="user">
+  <p class="tag">
   <span class="label label-primary"><%= link_to tag.name,questions_path(tag: tag.name),style: "color:white;" %></span>
   x <%= tag.taggings_count %>
   </p>
