@@ -1,1 +1,1 @@
-$('#answer-vote-link').html('<%=escape_javascript(render 'votes/answer_vote_form.html', answer: @answer) %>');
+$('#answer-vote-link').html('<%=escape_javascript(render 'answers/index', question: @answer.question) %>');

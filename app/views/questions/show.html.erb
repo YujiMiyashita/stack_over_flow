@@ -29,6 +29,8 @@
       <p>投稿日：<%= @question.created_at %></p>
     </div>
   </div>
-  <%= render 'answers/index' %>
+  <div id="answer-vote-link">
+  <%= render 'answers/index', question: @question %>
+  </div>
   <%= render 'answers/new' %>
 </div>
