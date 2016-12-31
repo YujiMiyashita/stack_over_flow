@@ -20,14 +20,14 @@ class VotesController < ApplicationController
     good = current_user.votes.build(answer_id: @answer.id)
     good.contribution = 1
     good.save
-    redirect_to question_path(@answer.question.id)
+    #redirect_to question_path(@answer.question.id)
   end
 
   def answer_bad
     bad = current_user.votes.build(answer_id: @answer.id)
     bad.contribution = 2
     bad.save
-    redirect_to question_path(@answer.question.id)
+    #redirect_to question_path(@answer.question.id)
   end
 
   private
