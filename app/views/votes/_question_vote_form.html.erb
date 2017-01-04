@@ -1,0 +1,3 @@
+<%= render 'questions/good' %>
+<p><%= question.votes.where(contribution: 1).count - question.votes.where(contribution: 2).count %></p>
+<%= render 'questions/bad' %>

@@ -1,13 +1,15 @@
-<% @question.answers.each do |answer| %>
+<% question.answers.each do |answer| %>
 <% if answer.id then %>
 <div class="row">
   <div class="col-sm-1">
   </div>
   <div class="col-sm-1">
     <hr>
-    <%= render 'answers/good', answer: answer %>
-    <p><%= answer.votes.where(contribution: 1).count - answer.votes.where(contribution: 2).count %></p>
-    <%= render 'answers/bad', answer: answer %>
+    <div id="answer-vote-link">
+      <%= render 'answers/good', answer: answer %>
+      <p><%= answer.votes.where(contribution: 1).count - answer.votes.where(contribution: 2).count %></p>
+      <%= render 'answers/bad', answer: answer %>
+    </div>
   </div>
   <div class="col-sm-6">
     <hr>

@@ -1,5 +1,5 @@
   <% if current_user.votes.find_by(answer_id: answer.id) %>
     <p class="voted"><%= '▲' %></p>
   <% else %>
-    <p><%= link_to '▲', answergood_path(answer.id), method: :post %></p>
+    <p><%= link_to '▲', answergood_path(answer.id), method: :post, remote: true %></p>
   <% end %>

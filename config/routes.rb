@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
 #トップ画面
   root 'top#index'
 
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   }
   resources :users, only: [:index,:show]
   resources :favorites, only: [:create,:destroy]
+  resources :tags, only: [:index]
 #質問機能
   resources :questions do
     resources :answers
