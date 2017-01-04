@@ -1,13 +1,17 @@
 class FavoritesController < ApplicationController
+  before_action :set_question
 
   def create
-    current_user.favorites.create(question_id: params[:favorite][:question_id])
-    redirect_to questions_path
+    current_user.favorites.create(question_id: @question.id)
   end
 
   def destroy
-    favorite = current_user.favorites.find_by(question_id: params[:favorite][:question_id])
+    favorite = current_user.favorites.find_by(question_id: @question.id)
     favorite.destroy
-    redirect_to questions_path
   end
+
+  private
+    def set_question
+      @question = Question.find(params[:favorite][:question_id])
+    end
 end

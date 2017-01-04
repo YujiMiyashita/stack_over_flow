@@ -7,12 +7,13 @@
   <div class="row">
     <div class="col-sm-1">
     </div>
-
     <div class="col-sm-1">
       <div id="question-vote-link">
         <p><%= render 'votes/question_vote_form', question: @question %></p>
       </div>
+      <div id="favorite-link">
       <p><%= render 'favorites/favorite_form', question: @question %></p>
+      </div>
     </div>
     <div class="col-sm-6">
       <p><%= @question.content %></p>
