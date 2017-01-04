@@ -1,0 +1,16 @@
+<section class="container">
+  <div class="row top_content">
+      <h2>スタック・オーバーフローへようこそ</h2>
+  </div>
+  <div class="row top_content">
+      <p><img src="<%= asset_path "logo01.png" %>"></p>
+  </div>
+  <div class="row top_content">
+      <p><strong>スタック・オーバーフロー</strong> は、職業プログラマーから週末プログラマーまで、<br>
+        プログラミングに情熱をそそぐ人のためのQ&Aサイトです。<br>
+        ユーザーによるユーザーのためのQ&Aコミュニティの集まりである、<br>
+        Stack Exchange ネットワークの一部として運営されています。<br>
+        目標は、プログラミングに関するあらゆる質問の詳細な回答集をみんなで作り上げること。<br>
+        ぜひあなたの力を貸してください。</p>
+  </div>
+</section>
