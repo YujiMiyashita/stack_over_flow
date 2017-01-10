@@ -1,6 +1,8 @@
 class VotesController < ApplicationController
   before_action :set_question_vote, only: [:good, :bad]
+  before_action :count_question_votes, only: [:good, :bad]
   before_action :set_answer_vote, only: [:answer_good, :answer_bad]
+  before_action :count_answer_votes, only: [:answer_good, :answer_bad]
 
   def good
     good = current_user.votes.build(question_id: @question.id)
@@ -33,5 +35,13 @@ class VotesController < ApplicationController
 
     def set_answer_vote
       @answer = Answer.find(params[:answer_id])
+    end
+
+    def count_question_votes
+      redirect_to question_path(@question), notice: 'すでに投票済みです。' if current_user.votes.find_by(question_id: @question.id)
+    end
+
+    def count_answer_votes
+      redirect_to question_path(@answer.question_id), notice: 'すでに投票済みです。' if current_user.votes.find_by(answer_id: @answer.id)
     end
 end
