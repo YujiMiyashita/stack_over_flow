@@ -36,7 +36,8 @@ class VotesController < ApplicationController
     def set_answer_vote
       @answer = Answer.find(params[:answer_id])
     end
-
+    
+    #count voted
     def count_question_votes
       redirect_to question_path(@question), notice: 'すでに投票済みです。' if current_user.votes.find_by(question_id: @question.id)
     end
