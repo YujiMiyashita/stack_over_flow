@@ -8,6 +8,7 @@
   <p class="user">
   <%= link_to profile_img(user),user if profile_img(user) %>
   <%= link_to user.name,user %>
+  <%= user.contribution_count %>
   </p>
 <% end %>
 
