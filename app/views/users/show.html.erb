@@ -6,5 +6,6 @@
   <div class="col-sm-9 user_prof">
     <h2 class="name"><%= @user.name %></h2>
   </div>
-
 </div>
+
+<%= render "top/questions", questions: @user.favorited_questions, title: 'お気に入りの質問' %>
