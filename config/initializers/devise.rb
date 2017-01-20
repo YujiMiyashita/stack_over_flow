@@ -13,6 +13,7 @@ Devise.setup do |config|
   config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
   config.reset_password_within = 6.hours
   config.sign_out_via = :delete
+  config.secret_key = 'd59ba957013f6592021929c3b4421977ba1cfacf3ae991a57de3df379f38d19b6121530c43d349732dda488733e2d0ff864fc32f89cdabd61cd3d9e6883a2586'
 
   if Rails.env.production?
     config.omniauth :facebook, ENV["FACEBOOK_ID_PRODUCTION"], ENV["FACEBOOK_SECRET_PRODUCTION"], scope: 'email', display: 'popup', info_fields: 'name, email',image_size: 'large'
